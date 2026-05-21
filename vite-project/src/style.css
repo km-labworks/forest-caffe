@@ -1,0 +1,246 @@
+body {
+  margin: 0;
+}
+
+/* ファーストビュー */
+.hero {
+  position: relative;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.8s ease;
+  position: relative;
+}
+
+.hero.morning {
+  background-image: url(images/thomas-galler-yEGZOu4Uzn4-unsplash.jpg);
+  filter: brightness(1.1) saturate(1.2);
+}
+
+.hero.day {
+  background-image: url("images/taan-huyn-nBhPRGtUPqw-unsplash.jpg");
+  filter: brightness(1.0);
+}
+
+.hero.night {
+  background-image: url("images/max-saeling-ef0sXQtnCYU-unsplash.jpg");
+  filter: brightness(0.7);
+}
+
+/* 黒い膜 */
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;  
+  background: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 朝 */
+.hero.morning .overlay {
+  background: rgba(255, 200, 150, 0.2);
+}
+
+/* 昼 */
+.hero.day .overlay {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* 夜 */
+.hero.night .overlay {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* テキスト */
+.content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  animation: fadeIn 1.5s ease;
+}
+
+.content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.content p {
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+
+.content,.buttons {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.buttons {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  gap: 15px;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: white;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+/* ホバー */
+.buttons button:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.about {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.menu {
+  padding: 100px 20px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 20, 40, 0.9),
+    rgba(97, 94, 94, 0.95)
+  );
+}
+
+/* タイトル */
+.menu h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  letter-spacing: 3px;
+}
+
+/* メニューリスト */
+.menu-list {
+  display: grid;
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* カード */
+.menu-item {
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(176, 173, 173, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ホバー */
+.menu-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* 名前 */
+.menu-item h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+/* 値段 */
+.menu-item p {
+  margin-top: 8px;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.hero.morning ~ .menu .menu-item {
+  box-shadow: 0 0 10px rgba(255, 255, 200, 0.3);
+}
+
+.hero.day ~ .menu .menu-item {
+  border-color: rgba(129, 235, 162, 0.3);
+}
+
+.hero.night ~ .menu .menu-item {
+  box-shadow: 0 0 15px rgba(150, 100, 255, 0.4);
+}
+
+.concept {
+  padding: 100px 20px;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  position: relative;
+  background:rgb(255, 255, 255);
+}
+
+/* タイトル */
+.concept h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+/* 本文 */
+.concept p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 500px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* ガラス風カード */
+.concept::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* フェードイン */
+.concept {
+  animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+footer {
+  text-align: center;
+  font-weight: bold;
+}

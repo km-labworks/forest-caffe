@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="" href="src/images/coffee-cup-day-2-svgrepo-com.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/style.css">
+    <title>森のカフェ</title>
+  </head>
+  <body>
+    <section class="hero">
+    <div class="overlay"></div>
+
+    <div class="content">
+      <h1>時間とともに変わる森のカフェ</h1>
+      <p>日常を離れて、癒しのひとときを</p>
+    </div>
+
+    <div class="buttons">
+      <button data-time="morning">朝</button>
+      <button data-time="day">昼</button>
+      <button data-time="night">夜</button>
+    </div>
+    </section>
+
+    <section class="about">
+      <h2>森のカフェについて</h2>
+      <p>
+        自然に囲まれた静かな空間で、
+        心を癒すひとときを提供します。
+      </p>
+    </section>
+
+    <section class="menu">
+      <h2>Menu</h2>
+      <div id="menu-list" class="menu-list"></div>
+    </section>
+
+  <section class="concept">
+  <h2>コンセプト</h2>
+  <p>
+    時間ごとに異なる世界へと誘うカフェ。<br>
+    光、生命、そして幻想——<br>
+    あなたはどの時間を選びますか？
+  </p>
+  </section>
+
+  <footer>
+  <p>© 2026 森のカフェ</p>
+  </footer>
+
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
