@@ -1,63 +1,131 @@
 # Forest Caffe
 
-時間によって世界観が変化する、幻想的なカフェサイトです。  
-TypeScript + Vite を使用して制作しました。
+時間帯によって世界観が変化する、インタラクティブなカフェサイトです。  
+TypeScript と Vite を用いて開発し、UI状態管理・責務分離・型安全性を意識して設計しています。
 
-## Concept
+---
 
-「朝・昼・夜」で異なる雰囲気を楽しめる、
-森の中のカフェをイメージしています。
+## Overview
 
-背景画像・メッセージ・メニューが
-時間帯ごとに切り替わります。
+Forest Caffe は、  
+「朝・昼・夜」で異なる雰囲気を楽しめるカフェ体験をテーマにした Web アプリケーションです。
+
+ユーザー操作や現在時刻に応じて、
+
+- 背景画像
+- キャッチコピー
+- メニュー表示
+
+が動的に切り替わります。
 
 ---
 
 ## Features
 
-- 時間帯によるUI変更
-- 背景画像の動的切り替え
-- メニューの動的描画
-- TypeScriptによる型安全な実装
+- 時間帯に応じたテーマ変更
+- 動的な背景画像切り替え
+- メニューの動的レンダリング
+- 型安全な UI 更新処理
 - モジュール分割による保守性向上
-- ガラスモーフィズムUI
+- ガラスモーフィズムを用いたUIデザイン
 
 ---
 
 ## Tech Stack
 
-- TypeScript
-- Vite
-- HTML
-- CSS
+| Category | Technology |
+|---|---|
+| Language | TypeScript |
+| Build Tool | Vite |
+| Styling | CSS3 |
+| Package Manager | npm |
 
 ---
 
-## Directory Structure
+## Architecture
 
 ```txt
 src/
-├─ data/      # メニューデータ
-├─ guards/    # 型ガード
-├─ images/    # 画像管理
-├─ types/     # 型定義
-├─ ui/        # UI更新処理
-├─ utils/     # 時間判定
-└─ main.ts
+├─ data/
+│  └─ menu.ts            # メニューデータ管理
+│
+├─ guards/
+│  └─ isTimeZone.ts      # 型ガード
+│
+├─ images/               # UI画像管理
+│
+├─ types/
+│  └─ TimeZone.ts        # 型定義
+│
+├─ ui/
+│  ├─ renderMenu.ts      # メニュー描画
+│  └─ updateUI.ts        # UI状態更新
+│
+├─ utils/
+│  └─ time.ts            # 時間帯判定ロジック
+│
+└─ main.ts               # エントリーポイント
 ```
 
 ---
 
-## Learning Points
+## Application Flow
 
-このプロジェクトでは以下を意識して開発しました。
+Start[Application Start] --> GetTime[getTimeZone()]
+GetTime --> UpdateUI[updateUI()]
 
-- TypeScriptによる型管理
-- UIとロジックの責務分離
-- 保守しやすいディレクトリ構成
-- 動的UI変更
-- 再利用しやすい関数設計
-- 型ガードによる安全性向上
+UpdateUI --> ChangeHero[Update Hero Theme]
+UpdateUI --> UpdateTitle[Update Message]
+UpdateUI --> RenderMenu[renderMenu()]
+
+RenderMenu --> MenuData[menus.ts]
+
+UserClick[Button Click] --> UpdateUI
+```
+
+---
+
+## Module Relationship
+
+```mermaid
+graph LR
+
+main.ts --> utils/time.ts
+main.ts --> ui/updateUI.ts
+
+ui/updateUI.ts --> ui/renderMenu.ts
+ui/updateUI.ts --> types/TimeZone.ts
+
+ui/renderMenu.ts --> data/menu.ts
+
+guards/isTimeZone.ts --> types/TimeZone.ts
+```
+
+---
+
+## Design Principles
+
+本プロジェクトでは、以下を重視して設計しています。
+
+### Separation of Concerns
+
+UI更新・データ管理・ロジックを分離し、
+責務を明確化しています。
+
+### Type Safety
+
+TypeScript を用いて、
+実行時エラーを防ぐ設計を意識しています。
+
+### Maintainability
+
+機能単位でファイルを分割し、
+拡張・修正しやすい構成を採用しています。
+
+### Reusability
+
+UI更新処理や描画処理を関数化し、
+再利用可能な設計にしています。
 
 ---
 
@@ -69,7 +137,7 @@ src/
 npm install
 ```
 
-### Development
+### Start Development Server
 
 ```bash
 npm run dev
@@ -86,21 +154,20 @@ npm run build
 ## Future Improvements
 
 - レスポンシブ対応
-- アニメーション強化
-- BGM追加
-- ダークモード
+- LocalStorageによる状態保持
+- ダークモード切り替え
+- アニメーション最適化
 - API連携
-- React版への移植
+- React + Component Architecture への移行
 
 ---
 
-## Screenshot
+## Screenshots
 
-（ここにスクリーンショットを追加予定）
+Coming Soon...
 
 ---
 
 ## Author
 
 GitHub: Km
-
