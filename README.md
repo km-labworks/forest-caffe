@@ -1,15 +1,28 @@
 # Forest Caffe
 
-森の中にあるカフェをテーマにした Web アプリです。  
-TypeScript + Vite を使用して制作しています。
+時間によって世界観が変化する、幻想的なカフェサイトです。  
+TypeScript + Vite を使用して制作しました。
+
+## Concept
+
+「朝・昼・夜」で異なる雰囲気を楽しめる、
+森の中のカフェをイメージしています。
+
+背景画像・メッセージ・メニューが
+時間帯ごとに切り替わります。
+
+---
 
 ## Features
 
-- カフェメニュー表示
-- 時刻・タイムゾーン管理
-- 動的UI更新
+- 時間帯によるUI変更
+- 背景画像の動的切り替え
+- メニューの動的描画
 - TypeScriptによる型安全な実装
 - モジュール分割による保守性向上
+- ガラスモーフィズムUI
+
+---
 
 ## Tech Stack
 
@@ -18,18 +31,35 @@ TypeScript + Vite を使用して制作しています。
 - HTML
 - CSS
 
-## Project Structure
+---
+
+## Directory Structure
 
 ```txt
 src/
-├─ data/
-├─ guards/
-├─ images/
-├─ types/
-├─ ui/
-├─ utils/
+├─ data/      # メニューデータ
+├─ guards/    # 型ガード
+├─ images/    # 画像管理
+├─ types/     # 型定義
+├─ ui/        # UI更新処理
+├─ utils/     # 時間判定
 └─ main.ts
 ```
+
+---
+
+## Learning Points
+
+このプロジェクトでは以下を意識して開発しました。
+
+- TypeScriptによる型管理
+- UIとロジックの責務分離
+- 保守しやすいディレクトリ構成
+- 動的UI変更
+- 再利用しやすい関数設計
+- 型ガードによる安全性向上
+
+---
 
 ## Getting Started
 
@@ -51,24 +81,26 @@ npm run dev
 npm run build
 ```
 
-## Learning Points
-
-このプロジェクトでは以下を意識して開発しました。
-
-- TypeScriptの型設計
-- UIとロジックの分離
-- ファイル分割による可読性向上
-- 保守しやすいディレクトリ構成
-- Vite環境構築
+---
 
 ## Future Improvements
 
 - レスポンシブ対応
+- アニメーション強化
+- BGM追加
 - ダークモード
 - API連携
-- 検索機能追加
-- React化
+- React版への移植
+
+---
+
+## Screenshot
+
+（ここにスクリーンショットを追加予定）
+
+---
 
 ## Author
 
 GitHub: Km
+
