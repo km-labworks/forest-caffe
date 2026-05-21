@@ -1,6 +1,6 @@
 # Forest Caffe
 
-カフェをテーマにした Web アプリです。  
+森の中にあるカフェをテーマにした Web アプリです。  
 TypeScript + Vite を使用して制作しています。
 
 ## Features
